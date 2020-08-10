@@ -795,9 +795,24 @@ function updateNoun() {
 window.onload = function() {
 	noSleep.enable()
 
-	document.getElementById('logo').onclick = function () {
-		updateNoun()
-	}
+	document.getElementById('logo').onclick = updateNoun
+	document.getElementById('full-screen-button').onclick = openFullscreen
 
 	updateNoun()
+}
+
+var isFullscreen = false
+
+function openFullscreen() {
+	console.log('req fs')
+
+	if (isFullscreen) {
+		document.getElementById('full-screen-button').innerHTML = '⇗'
+		document.exitFullscreen()
+		isFullscreen = false
+	} else {
+		document.getElementById('full-screen-button').innerHTML = '⇙'
+		document.getElementById('body').requestFullscreen()
+		isFullscreen = true
+	}
 }
