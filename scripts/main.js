@@ -894,7 +894,6 @@ const gameState = {
 }
 
 window.onload = function() {
-	noSleep.enable()
 	loadingAnim = new LoadingAnimation('loading')
 
 	document.getElementById('logo').onclick = newWord
