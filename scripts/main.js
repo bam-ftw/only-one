@@ -778,7 +778,21 @@ const nouns = [
 	'toe',
 	'tower',
 	'truck',
-	'witness'
+	'witness',
+	'beaver',
+	'lubricant',
+	'bastard',
+	'dildo',
+	'abortion',
+	'addict',
+	'bible',
+	'prostitute',
+	'bomb',
+	'vibrator',
+	'swallow',
+	'plague',
+	'vaccine',
+	'equality',
 ]
 
 function getRandomNoun() {
