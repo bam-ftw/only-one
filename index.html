@@ -7,18 +7,27 @@
 		<link rel="icon" href="images/favicon.png">
 		<link rel="stylesheet" href="css/main.css" type="text/css">
 		<script src="scripts/nosleep.js"></script>
+		<script src="scripts/loading-animation.js"></script>
 		<script src="scripts/main.js"></script>
 		<title>Only One</title>
   </head>
   <body id="body">
 		<div id="app">
 			<div class="logo-container">
+				<span class="round left" id="points"></span>
 				<img alt="logo" id="logo" src="images/logo.png">
+				<span class="round right" id="round"></span>
 			</div>
 			<div class="word-container">
 				<div class="glow" id="word"></div>
+				<canvas id="loading"></canvas>
 			</div>
-			<button id="full-screen-button">⇗</button>
+			<button id="full-screen-button" class="maximize"></button>
+			<button id="new-game"></button>
+			<span class="spacer-h-20"></span>
+			<button id="result-failure"></button>
+			<button id="result-skip"></button>
+			<button id="result-success"></button>
 		</div>
 	</body>
 </html>

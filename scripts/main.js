@@ -792,27 +792,138 @@ function updateNoun() {
 	document.getElementById('word').innerHTML = getRandomNoun()
 }
 
+let loadingAnim = null
+
+function showLoadingAnimation() {
+	loadingAnim.start()
+	document.getElementById('word').style.display = 'none'
+	document.getElementById('loading').style.display = 'inline-block'
+}
+
+function hideLoadingAnimation() {
+	loadingAnim.stop()
+	document.getElementById('word').style.display = 'inline-block'
+	document.getElementById('loading').style.display = 'none'
+}
+
+let bNewWordDisabled = false
+
+function newWord() {
+	if (bNewWordDisabled)
+		return;
+
+	bNewWordDisabled = true
+
+	showLoadingAnimation()
+	setTimeout(() => {
+		bNewWordDisabled = false
+		updateNoun()
+		hideLoadingAnimation()
+	}, 3000);
+}
+
+function tally() {
+	alert(`Your score is ${gameState.points}`)
+	newGame()
+}
+
+function updateDisplays() {
+	document.getElementById('round').innerHTML = `${gameState.round}<span style="font-size:3vmin;">&nbsp;/&nbsp;</span>${gameState.roundCount}`
+	document.getElementById('points').innerHTML = `${gameState.points}`
+}
+
+function newGame() {
+	gameState.points = 0
+	gameState.round = 1
+	gameState.roundCount = 13
+
+	updateDisplays()
+	newWord()
+}
+
+function resultFailure() {
+	if (isLastRound()) {
+		return tally()
+	}
+
+	gameState.round += 2
+	updateDisplays()
+
+	newWord()
+}
+
+function resultSkip() {
+	if (isLastRound()) {
+		return tally()
+	}
+
+	gameState.round += 1
+	updateDisplays()
+
+	newWord()
+}
+
+function resultSuccess() {
+	gameState.points += 1
+	updateDisplays()
+
+	if (isLastRound()) {
+		return tally()
+	}
+
+	gameState.round += 1
+	updateDisplays()
+
+	newWord()
+}
+
+function isLastRound() {
+	return gameState.round >= gameState.roundCount
+}
+
+function newGameConfirm() {
+	if (confirm('Start a new game?')) {
+		newGame()
+	}
+}
+
+const gameState = {
+	points: 0,
+	round: 1,
+	roundCount: 13
+}
+
 window.onload = function() {
 	noSleep.enable()
+	loadingAnim = new LoadingAnimation('loading')
 
-	document.getElementById('logo').onclick = updateNoun
-	document.getElementById('full-screen-button').onclick = openFullscreen
+	document.getElementById('logo').onclick = newWord
+	document.getElementById('full-screen-button').onclick = toggleFullscreen
+	document.getElementById('new-game').onclick = newGameConfirm
+	document.getElementById('result-failure').onclick = resultFailure
+	document.getElementById('result-skip').onclick = resultSkip
+	document.getElementById('result-success').onclick = resultSuccess
 
-	updateNoun()
+	newGame()
+	// newWord()
+	// loadingAnim.start()
 }
 
 var isFullscreen = false
 
-function openFullscreen() {
-	console.log('req fs')
-
+function toggleFullscreen() {
 	if (isFullscreen) {
-		document.getElementById('full-screen-button').innerHTML = '⇗'
+		document.getElementById('full-screen-button').className = 'maximize'
 		document.exitFullscreen()
 		isFullscreen = false
 	} else {
-		document.getElementById('full-screen-button').innerHTML = '⇙'
+		document.getElementById('full-screen-button').className = 'minimize'
 		document.getElementById('body').requestFullscreen()
 		isFullscreen = true
 	}
 }
+
+
+
+
+

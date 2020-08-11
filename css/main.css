@@ -10,8 +10,6 @@ body {
 	height: 100%;
 	padding: 0;
 	margin: 0;
-	background: url("../images/bg.jpg");
-	background-position: center;
 }
 
 @font-face {
@@ -26,6 +24,9 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
 	color: #2c3e50;
+	height: 100%;
+	background: url("../images/bg.jpg");
+	background-position: center;
 }
 
 .logo-container {
@@ -34,12 +35,24 @@ body {
 
 #logo {
 	height: 20vmin;
-	display: block;
+	display: inline-block;
 	margin: auto;
 }
 
-.glow {
+#word-container {
+	height: 50vmin;
+}
+
+#word {
 	line-height: 50vmin;
+}
+
+#loading {
+	height: 50vmin;
+	width: 90vw;
+}
+
+.glow {
 	font-size: 21vmin;
 	cursor: default;
 	font-family: LINTSEC;
@@ -52,14 +65,85 @@ body {
 	text-shadow: 0 0 1vmin #fff, 0 0 2vmin #fff, 0 0 3vmin #e60073, 0 0 4vmin #e60073, 0 0 5vmin #e60073, 0 0 6vmin #e60073, 0 0 7vmin #e60073;
 }
 
-#full-screen-button {
+button {
 	font-size: 7vmin;
-	border: 6px solid #333;
+	border: 6px solid #000;
 	padding: 0;
-	margin: 0;
+	margin: 0 2vmin;
 	background: #222;
 	color: #FFF;
-	width: 13vmin;
-	height: 13vmin;
+	width: 10vw;
+	height: 10vw;
 	border-radius: 3vmin;
+	cursor: pointer;
+}
+
+#loader-container {
+	height: 50vmin;
+	width: 90vw;
+	display: inline-block;
+	position: relative;
+}
+
+#result-failure {
+	background: rgb(207, 91, 91) url("../images/icons/sad.svg");
+	background-position: center;
+	background-size: 6vw;
+	background-repeat: no-repeat;
+}
+
+#result-skip {
+	background: rgb(189, 169, 59) url("../images/icons/neutral.svg");
+	background-position: center;
+	background-size: 6vw;
+	background-repeat: no-repeat;
+}
+
+#result-success {
+	background: rgb(75, 206, 140) url("../images/icons/happy.svg");
+	background-position: center;
+	background-size: 6vw;
+	background-repeat: no-repeat;
+}
+
+#new-game {
+	background: rgb(151, 151, 151) url("../images/icons/reload.svg");
+	background-position: center;
+	background-size: 6vw;
+	background-repeat: no-repeat;
+}
+
+#full-screen-button {
+	background-position: center;
+	background-size: 6vw;
+	background-repeat: no-repeat;
+}
+
+.maximize {
+	background: rgb(151, 151, 151) url("../images/icons/fullscreen.svg");
+}
+
+.minimize {
+	background: rgb(151, 151, 151) url("../images/icons/minimize.png");
+}
+
+.spacer-h-20 {
+	display: inline-block;
+	width: 20vw;
+
+}
+
+.round {
+	font-size:7vmin;
+	color: #FFF;
+	float: center;
+	margin: 2vmin;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
 }
