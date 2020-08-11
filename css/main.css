@@ -74,8 +74,9 @@ button {
 	color: #FFF;
 	width: 10vw;
 	height: 10vw;
-	border-radius: 3vmin;
+	border-radius: 1.5vmin;
 	cursor: pointer;
+	outline: none;
 }
 
 #loader-container {
@@ -86,28 +87,28 @@ button {
 }
 
 #result-failure {
-	background: rgb(207, 91, 91) url("../images/icons/sad.svg");
+	background: rgba(207, 91, 91, 0.6) url("../images/icons/sad.svg");
 	background-position: center;
 	background-size: 6vw;
 	background-repeat: no-repeat;
 }
 
 #result-skip {
-	background: rgb(189, 169, 59) url("../images/icons/neutral.svg");
+	background: rgba(189, 169, 59, 0.6) url("../images/icons/neutral.svg");
 	background-position: center;
 	background-size: 6vw;
 	background-repeat: no-repeat;
 }
 
 #result-success {
-	background: rgb(75, 206, 140) url("../images/icons/happy.svg");
+	background: rgba(75, 246, 140, 0.5) url("../images/icons/happy.svg");
 	background-position: center;
 	background-size: 6vw;
 	background-repeat: no-repeat;
 }
 
 #new-game {
-	background: rgb(151, 151, 151) url("../images/icons/reload.svg");
+	background: rgba(168, 168, 168, 0.6) url("../images/icons/reload.svg");
 	background-position: center;
 	background-size: 6vw;
 	background-repeat: no-repeat;
@@ -120,11 +121,11 @@ button {
 }
 
 .maximize {
-	background: rgb(151, 151, 151) url("../images/icons/fullscreen.svg");
+	background: rgba(168, 168, 168, 0.6) url("../images/icons/fullscreen.svg");
 }
 
 .minimize {
-	background: rgb(151, 151, 151) url("../images/icons/minimize.png");
+	background: rgba(168, 168, 168, 0.6) url("../images/icons/minimize.png");
 }
 
 .spacer-h-20 {
