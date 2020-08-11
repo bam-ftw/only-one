@@ -40,15 +40,15 @@ body {
 }
 
 #word-container {
-	height: 50vmin;
+	height: 40vmin;
 }
 
 #word {
-	line-height: 50vmin;
+	line-height: 40vmin;
 }
 
 #loading {
-	height: 50vmin;
+	height: 40vmin;
 	width: 90vw;
 }
 
