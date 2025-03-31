@@ -856,11 +856,12 @@ function newGame() {
 }
 
 function resultFailure() {
-	if (isLastRound()) {
+	if (isLastOrFormerLastRound()) {
 		return tally()
 	}
 
 	gameState.round += 2
+	
 	updateDisplays()
 
 	newWord()
@@ -893,6 +894,10 @@ function resultSuccess() {
 
 function isLastRound() {
 	return gameState.round >= gameState.roundCount
+}
+
+function isLastOrFormerLastRound() {
+	return gameState.round >= (gameState.roundCount - 1)
 }
 
 function newGameConfirm() {
